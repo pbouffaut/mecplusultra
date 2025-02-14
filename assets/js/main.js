@@ -27,6 +27,10 @@
 				$body.removeClass('is-preload');
 			}, 100);
 		});
+		
+		$( window ).on( "resize", function() {
+			resizeAudioPlayer();
+		} );
 
 	// Mobile?
 		if (browser.mobile)
@@ -73,11 +77,24 @@
 
 			$banner.scrollex({
 				bottom:		$header.outerHeight() + 1,
-				terminate:	function() { $header.removeClass('alt'); },
-				enter:		function() { $header.addClass('alt'); },
-				leave:		function() { $header.removeClass('alt'); }
+				terminate:	function() { $header.removeClass('alt'); resizeAudioPlayer(); },
+				enter:		function() { $header.addClass('alt'); resizeAudioPlayer(); },
+				leave:		function() { $header.removeClass('alt'); resizeAudioPlayer(); }
 			});
 
+		}
+		
+		function resizeAudioPlayer() {
+			$audioplayer = $(".audioplayer");
+			if( $header.hasClass('alt') ) {
+				$audioplayer.css({'width': '100%'});
+			} else {
+				var h1 = $header.find("h1").first();
+				var maxWidth = $header.width();
+				var leftWidth = h1.width() + h1.position().left;
+				var myPercentage  = (maxWidth - leftWidth) /  maxWidth * 100;
+				$audioplayer.css({'width': myPercentage + '%'});
+			}
 		}
 
 })(jQuery);
