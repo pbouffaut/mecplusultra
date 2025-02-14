@@ -5,11 +5,14 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+
 	<head>
 		<title>Spectral by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/audioplayer.css" />
+
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="landing is-preload">
@@ -19,21 +22,12 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.html">Un mec + ultra</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Generic</a></li>
-											<li><a href="elements.html">Elements</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
+						<h1>
+							<a href="index.html">Un mec + ultra</a>
+						</h1>
+							<audio preload="none" controls style="display: none;">
+								<source src="audio/unmecplusultra.mp3" type="audio/mp3">
+							</audio>
 					</header>
 
 				<!-- Banner -->
@@ -44,6 +38,7 @@
 							Games we love</p>
 						</div>
 						<a href="#one" class="more scrolly">Comment jouer</a>
+						
 					</section>
 
 				<!-- One -->
@@ -207,6 +202,14 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+			<script src="assets/js/audioplayer.js"></script>
+
+			<script>
+				$(function() {
+					$('audio').audioPlayer();
+				});
+			</script>
 
 	</body>
 </html>
